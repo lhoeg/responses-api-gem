@@ -49,7 +49,7 @@ module ResponsesApi
       @response.code == 200 && json?
     end
 
-    def responses(hashie = true)
+    def responses(hashie: true)
       if hashie
         Hashie::Mash.new(json).items
       else

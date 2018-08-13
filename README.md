@@ -33,7 +33,7 @@ This should require all the gems in your Gemfile for you.
 
 ### Usage
 
-Now we're ready to develop. Let's say you have a form, you will just need to create a `Form` object and send it to our API's using a `CreateFormRequest`.
+Now we're ready to develop. Let's say you have a form, you will retrieve the last page of responses using a `RetrieveResponsesRequest`
 
 `responses = ResponsesApi::RetrieveResponsesRequest.execute('form-id').responses` - voila!
 
@@ -42,6 +42,10 @@ Now we're ready to develop. Let's say you have a form, you will just need to cre
 Note: This will only work if you have set the environment variable as mentioned before. You can explicitly pass a token like this
 
 `ResponsesApi::RetrieveResponsesRequest.execute('form-id, token: 'your-token-goes-here')`
+
+The returned responses are sent through Hashie to simplify access. This can be disabled by adding parameter `hashie: false` to responses
+
+`responses = ResponsesApi::RetrieveResponsesRequest.execute('form-id').responses(hashie: false)`
 
 ## Development
 
