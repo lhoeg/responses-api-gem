@@ -51,5 +51,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rest-client', '>=2'
   spec.add_dependency 'json'
+  spec.add_dependency 'hashie', '~> 3.0.0'
   spec.add_dependency 'rack'
 end

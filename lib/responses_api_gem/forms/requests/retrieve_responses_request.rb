@@ -17,6 +17,8 @@
 
 require_relative 'form_request'
 require 'open-uri'
+require 'hashie'
+Hash.send :include, Hashie::Extensions
 
 module ResponsesApi
   class RetrieveResponsesRequest < FormRequest
@@ -32,7 +34,7 @@ module ResponsesApi
       url << "after=#{after}&" unless after.nil?
       url << "before=#{before}&" unless before.nil?
       url << "sort=#{sort}&" unless sort.nil?
-      url << "query=#{query.id}&" unless query.nil?
+      url << "query=#{query}&" unless query.nil?
       url << "fields=#{fields}&" unless fields.nil?
       r = {
         method: :get,
@@ -47,8 +49,12 @@ module ResponsesApi
       @response.code == 200 && json?
     end
 
-    def responses
-      json.fetch(:items)
+    def responses(hashie = true)
+      if hashie
+        Hashie::Mash.new(json).items
+      else
+        json.fetch(:items)
+      end
     end
   end
 end
