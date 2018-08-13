@@ -66,7 +66,7 @@ module ResponsesApi
     end
 
     def json
-      JSON.parse(@response, symbolize_names: true)
+      @json ||= JSON.parse(@response, symbolize_names: true)
     end
 
     def json?

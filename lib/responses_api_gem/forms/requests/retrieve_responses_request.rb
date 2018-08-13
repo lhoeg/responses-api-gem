@@ -56,5 +56,13 @@ module ResponsesApi
         json.fetch(:items)
       end
     end
+
+    def page_count
+      json.fetch(:page_count)
+    end
+
+    def total_items
+      json.fetch(:total_items)
+    end
   end
 end
