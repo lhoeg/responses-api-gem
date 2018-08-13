@@ -16,7 +16,7 @@ Once you have this token, we recommend for security reasons saving it as an `TYP
 
 Add this line to your application's Gemfile:
 
-`gem 'responses_api_gem', git: 'https://github.com/Typeform/responses-api-gem.git'`
+`gem 'responses_api_gem', git: 'https://github.com/lhoeg/responses-api-gem.git'`
 
 And then execute:
 
@@ -33,41 +33,15 @@ This should require all the gems in your Gemfile for you.
 
 ### Usage
 
-__TODO__
+Now we're ready to develop. Let's say you have a form, you will just need to create a `Form` object and send it to our API's using a `CreateFormRequest`.
 
-Now we're ready to develop. Let's say you want to create a form, you will just need to create a `Form` object and send it to our API's using a `CreateFormRequest`.
+`responses = ResponsesApi::RetrieveResponsesRequest.execute('form-id').responses` - voila!
 
-`CreateFormRequest.execute(Form.new)` - voila!
-
-(We use `.execute` instead of `.new` on the `CreateFormRequest` to check that we get back the correct status code)
+(We use `.execute` instead of `.new` on the `RetrieveResponsesRequest` to check that we get back the correct status code)
 
 Note: This will only work if you have set the environment variable as mentioned before. You can explicitly pass a token like this
 
-`CreateFormRequest.execute(Form.new, token: 'your-token-goes-here')`
-
-If you check in your Typeform account you should have a form in there with a funny name. That's the one you just created! The funny name comes from [this](https://github.com/ffaker/ffaker) gem, as you can't create a form without a title. You'll probably want to decide your own title, you can do this like so
-
-`CreateFormRequest.execute(Form.new(title: 'My new form'), token: 'your-token-goes-here')`
-
-So we have create a form! Let's add some things to it. By assigning the result of the requests `.form` method we can receive a `Form` object to interact with
-
-`form = CreateFormRequest.execute(Form.new).form`
-
-Now we can add some blocks. Likewise with the form, if you simply call `.new` on a block, the gem will generate the bare minimum data required for that block. For example
-
-`form.blocks << ShortTextBlock.new`
-
-Now you're form has a block, but Typeform doesn't know that yet, so we need to send a request back to Typeform to update the form, again we can assign the result back to our original variable.
-
-`form = UpdateFormRequest.execute(form).form`
-
-If you want to use an existing form of yours, you can do so like this
-
-`form = RetrieveFormRequest.execute(Form.new(id: 'your-form-id-goes-here')).form`
-
-You can find your form's ID on the end of the URL for the typeform.
-
-__TODO__
+`ResponsesApi::RetrieveResponsesRequest.execute('form-id, token: 'your-token-goes-here')`
 
 ## Development
 
@@ -79,7 +53,7 @@ After checking out the repo, you can run `rake console` to load the gem using th
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Typeform/responses-api-gem.
+Bug reports and pull requests are welcome on GitHub at https://github.com/lhoeg/responses-api-gem.
 
 When writing Ruby code we use *Rubocop* as a static code analyzer. You can run `rubocop` from the route folder to make sure that your code fits the conventions we have set inside the '.rubocop.yml' file.
 
