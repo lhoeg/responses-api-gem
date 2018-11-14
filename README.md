@@ -1,6 +1,6 @@
-# Responses API Gem
+# Typeform Responses API Gem
 
-Welcome to the Responses API Gem! This gem provides a way of interacting with [Typeforms Responses API](https://developer.typeform.com/responses/) if you are programming in Ruby.
+Welcome to the Typeform Responses API Gem! This gem provides a way of interacting with [Typeforms Responses API](https://developer.typeform.com/responses/) if you are programming in Ruby.
 
 This gem is heavily inspired by [Typeform/create-api-gem](https://github.com/Typeform/create-api-gem).
 
@@ -16,15 +16,21 @@ Once you have this token, we recommend for security reasons saving it as an `TYP
 
 Add this line to your application's Gemfile:
 
-`gem 'responses_api_gem', git: 'https://github.com/lhoeg/responses-api-gem.git'`
+```ruby
+gem 'responses_api_gem', git: 'https://github.com/lhoeg/responses-api-gem.git'
+```
 
 And then execute:
 
-`bundle install`
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install responses_api_gem
 
 Wherever you use the gem, it is easiest to require it like so:
 
-```
+```ruby
 require 'bundler'
 Bundler.require
 ```
@@ -49,21 +55,27 @@ The returned responses are sent through Hashie to simplify access. This can be d
 
 ## Development
 
-After checking out the repo, you can run `rake console` to load the gem using the interactive ruby console.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test" # or "spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-## Code of Conduct
-
-[See our code of conduct here](CODE_OF_CONDUCT.md)
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/lhoeg/responses-api-gem.
+Bug reports and pull requests are welcome on GitHub at https://github.com/lhoeg/responses_api_gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 When writing Ruby code we use *Rubocop* as a static code analyzer. You can run `rubocop` from the route folder to make sure that your code fits the conventions we have set inside the '.rubocop.yml' file.
 
 ### Versioning
 
 We follow the semantic versioning as defined by rubygems.org
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the ResponsesApiGem project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/lhoeg/responses_api_gem/blob/master/CODE_OF_CONDUCT.md).
 
 ## Alternatives
 
