@@ -47,7 +47,7 @@ Now we're ready to develop. Let's say you have a form, you will retrieve the las
 
 Note: This will only work if you have set the environment variable as mentioned before. You can explicitly pass a token like this
 
-`ResponsesApi::RetrieveResponsesRequest.execute('form-id, token: 'your-token-goes-here')`
+`ResponsesApi::RetrieveResponsesRequest.execute('form-id', token: 'your-token-goes-here')`
 
 The returned responses are sent through Hashie to simplify access. This can be disabled by adding parameter `hashie: false` to responses
 
