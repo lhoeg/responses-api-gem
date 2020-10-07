@@ -8,7 +8,7 @@ module ResponsesApi
     ISO_8601_FORMAT = '%Y-%m-%dT%H:%M:%S'.freeze
 
     def initialize(form_id, token: APIConfig.token, page_size: 25, page: nil, ts_since: nil, ts_until: nil, after: nil, before: nil, completed: true,
-                   sort: nil, query: nil, fields: nil)
+                   sort: nil, query: nil, fields: nil, included_response_ids: nil)
       url = "#{APIConfig.api_request_url}/forms/#{form_id}/responses?"
       url << "page_size=#{page_size}&" unless page_size.nil?
       url << "page=#{page}&" unless page.nil?
@@ -20,6 +20,7 @@ module ResponsesApi
       url << "sort=#{sort}&" unless sort.nil?
       url << "query=#{query}&" unless query.nil?
       url << "fields=#{fields}&" unless fields.nil?
+      url << "included_response_ids=#{included_response_ids}&" unless included_response_ids.nil?
       r = {
         method: :get,
         url: url
