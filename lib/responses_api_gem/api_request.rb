@@ -1,7 +1,7 @@
 module ResponsesApi
   class APIRequest
-    def self.execute(*args)
-      new(*args).tap do |request|
+    def self.execute(*args, **kwargs)
+      new(*args, **kwargs).tap do |request|
         raise StandardError, 'Failed asserting that the request succeeds' unless request.success?
       end
     end
