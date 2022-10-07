@@ -1,7 +1,6 @@
 require_relative 'form_request'
 require 'open-uri'
 require 'hashie'
-Hash.send :include, Hashie::Extensions
 
 module ResponsesApi
   class RetrieveResponsesRequest < FormRequest
